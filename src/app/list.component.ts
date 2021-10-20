@@ -9,7 +9,7 @@ import { Post, Query } from "./types";
   selector: "app-list",
   template: `
     <ul>
-      <li *ngFor="let post of (posts | async)">
+      <li *ngFor="let post of (posts | async)" [value]="post.votes">
         {{ post.title }} by {{ post.author.firstName }}
         {{ post.author.lastName }} ({{ post.votes }} votes)
         <app-upvoter [postId]="post.id"></app-upvoter>
@@ -19,6 +19,7 @@ import { Post, Query } from "./types";
 })
 export class ListComponent implements OnInit {
   posts: Observable<Post[]>;
+  number: any;
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
