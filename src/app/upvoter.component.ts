@@ -11,6 +11,7 @@ import { Apollo, gql } from 'apollo-angular';
 })
 export class UpvoterComponent {
   @Input() postId: number;
+  @Input() number;
 
   constructor(private apollo: Apollo) {}
 

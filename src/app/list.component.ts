@@ -9,7 +9,7 @@ import { Post, Query } from "./types";
   selector: "app-list",
   template: `
     <ul>
-      <li *ngFor="let post of (posts | async)">
+      <li *ngFor="let post of (posts | async); let i = index" [value]="post.votes">
         {{ post.title }} by {{ post.author.firstName }}
         {{ post.author.lastName }} ({{ post.votes }} votes)
         <app-upvoter [postId]="post.id"></app-upvoter>
