@@ -1,4 +1,10 @@
 describe('suit1', () => {
+    beforeEach(() => {
+    cy.readFile('./introspection.schema.graphql').then(schema => {
+        //cy.mockNetwork({ schema: schema, mocks: 'localhost:4200'});
+        cy.mockNetwork({schema});
+    });
+});
     it("it should be increased by 1", () => {
         //cy.get('ul > :nth-child(1)').invoke('attr', 'value').as('x');
         let votesBefore = 0;
